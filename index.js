@@ -214,7 +214,7 @@ console.log(artists[0].name);
 
 //(2) Bio of the third artist (2nd index) in the array 
 
-
+console.log(artists[2].bio);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2 (not auto tested): 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 (no function needed) 
