@@ -233,12 +233,9 @@ Use getArtistByIndex to do the following:
 
 🌟 EXAMPLE: if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(array, id) {
-  let artistID = "the artist at index " + array[id].id + " is " + array[id].name
-  return artistID;
+function getArtistByIndex(array, index) {
+  return `the artist at index ${index} is ${array[index].name}`
 }
-
-console.log(getArtistByIndex(artists, 5));
 
 
 
@@ -321,16 +318,13 @@ Use lotsOfArt to do the following:
 🌟 EXAMPLE: lotsOfArt(artists) will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]
 */
 
-function lotsOfArt(arr) {
-  const newArr = []
-  for (let i = 0 ; i<arr.length ; i++){
-  
-    if (arr[i].paintings > 100){
-    newArr.push(arr[i].name)
-  }
-  
-  }
-  return newArr
+function lotsOfArt(array) {
+
+  let newArray =[];
+  array.map((artist) => {
+    if (artist.paintings > 100) newArray.push(artist.name);
+  });
+  return newArray;
 }
 
 
@@ -345,17 +339,14 @@ Use artistInfo to do the following:
   "Frida Kahlo de Rivera (Spanish pronunciation: [ˈfɾiða ˈkalo]; born Magdalena Carmen Frida Kahlo y Calderón; 6 July 1907 – 13 July 1954) was a Mexican artist who painted many portraits, self-portraits and works inspired by the nature and artifacts of Mexico. Inspired by the country's popular culture, she employed a naïve folk art style to explore questions of identity, postcolonialism, gender, class and race in Mexican society. Her paintings often had strong autobiographical elements and mixed realism with fantasy. In addition to belonging to the post-revolutionary Mexicayotl movement, which sought to define a Mexican identity, Kahlo has been described as a surrealist or magical realist.Born to a German father and a mestiza mother, Kahlo spent most of her childhood and adult life at her family home in Coyoacán, La Casa Azul, now known and publicly accessible as the Frida Kahlo Museum. She was disabled by polio as a child. Until a traffic accident at age eighteen caused lifelong pain and medical problems, she had been a promising student headed for medical school. During her recovery, she returned to her childhood hobby of art with the idea of becoming an artist."
 */
 
-function artistInfo(arr,str){
-  let bio = []
-  for (let i = 0 ; i<arr.length ; i++){
-  
-    if (arr[i].name === str){
-    bio.push(arr[i].bio)
-  }
-  
-  }
-  return bio
+function artistInfo(array, name){
+  let Object
+  array.map((artist) => { if(artist.name === name) return (Object = artist);
+});
+return Object.bio;
 }
+artistInfo(artists, 'Frida Kahlo');
+
 
 
 
@@ -369,20 +360,15 @@ Use artistByCountry to do the following:
 🌟 EXAMPLE: Invoking artistByCountry(artists, 'Spanish') will return: [ 'Salvador Dali', 'Pablo Picasso', 'Francisco Goya']
 */
 
-function artistByCountry(array, artistNationality){
-  let artistFilter = [];
+function artistByCountry(array, nationality){
+  let artistName = [];
+  array.map((artist)=>{
+    if(artist.nationality===nationality) return artistName.push(artist.name)
+  })
 
-  for (let i = 0; i < array.length; i++) {
-    if (array[i].nationality === artistNationality) {
-      artistFilter.push(array[i].name);
-    }
-  }
-
-  return artistFilter;
-
+return artistName
 }
 
-console.log(artistByCountry, 'Spanish');
 
 
 
