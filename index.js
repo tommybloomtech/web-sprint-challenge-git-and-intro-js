@@ -220,7 +220,7 @@ console.log(artists[2].bio);
 (no function needed) 
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Fix this issue and console.log() to check your work. */
 
-artists[8].name = 'Vincent Van Gogh';
+artists[8].name = "Vincent Van Gogh";
 console.log(artists[8].name);
 
 
@@ -233,9 +233,12 @@ Use getArtistByIndex to do the following:
 
 🌟 EXAMPLE: if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(array, number) {
-  return `the artist at ${index} is ${array[index].name}`;
+function getArtistByIndex(array, id) {
+  let artistID = "the artist at index " + array[id].id + " is " + array[id].name
+  return artistID;
 }
+
+console.log(getArtistByIndex(artists, 5));
 
 
 
@@ -364,15 +367,20 @@ Use artistByCountry to do the following:
 🌟 EXAMPLE: Invoking artistByCountry(artists, 'Spanish') will return: [ 'Salvador Dali', 'Pablo Picasso', 'Francisco Goya']
 */
 
-function artistByCountry(array, nationality){
-  const nation = [];
-  for(let i = 0; i < array.length; i++){
-    if(array[i].nationality === nationality){
-      nation.push(array[i].name);
+function artistByCountry(array, artistNationality){
+  let artistFilter = [];
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].nationality === artistNationality) {
+      artistFilter.push(array[i].name);
     }
   }
- return nation;
- }
+
+  return artistFilter;
+
+}
+
+console.log(artistByCountry, 'Spanish');
 
 
 
